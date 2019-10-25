@@ -11,7 +11,7 @@ Now that you have finished the first challenge, it is time to see what you are r
 ## Challenge - Intermediate
 
 1. Refactor your code to use [Redux with Hooks](https://react-redux.js.org/next/api/hooks) to manage the state of your application.
-   a. If you are unfamiliar with either redux or hooks, take the time to review the resources below.
+- If you are unfamiliar with either redux or hooks, take the time to review the resources below.
 
 ## Requirements
 
