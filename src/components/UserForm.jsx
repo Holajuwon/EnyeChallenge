@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { Grid, TextField, Paper, Button } from "@material-ui/core";
-import {} from "@material-ui/pickers";
-import DateFnsUtils from "@date-io/date-fns";
 
 const UserForm = props => {
   const initialFormState = {
@@ -12,23 +10,32 @@ const UserForm = props => {
     hobby: ""
   };
   const [user, setUser] = useState(initialFormState);
-
+  const [error, setError] = useState({ error: "" });
   const handleInput = e => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
-    console.log(value);
   };
 
   const handleSubmit = e => {
     e.preventDefault();
+    setError({ error: " " });
     if (user.firstName && user.lastName && user.birthday) {
       setUser(initialFormState);
-      return props.addUser(user);
+      props.onSubmit({
+        firstName: user.firstName,
+        lastName: user.lastName,
+        birthday: user.birthday,
+        age: user.age,
+        hobby: user.hobby
+      });
+    } else {
+      setError({ error: "Please Fill all required inputs" });
     }
   };
 
   return (
     <Paper style={{ margin: 30, padding: 30, width: 300 }}>
+      <p style={{ color: "red" }}>{error.error}</p>
       <form onSubmit={handleSubmit}>
         <Grid>
           <Grid>
@@ -95,7 +102,7 @@ const UserForm = props => {
             ></TextField>
           </Grid>
           <br />
-          <Grid xs={0} md={9}>
+          <Grid xs={1} md={9} item>
             <Button
               type="submit"
               color="primary"

@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 import {
   Paper,
   TableHead,
@@ -11,34 +12,39 @@ import {
 const Table = props => {
   return (
     <Paper style={{ padding: 30, margin: 30, width: 500 }}>
-    <Grid >
-      <TableHead  style={{display: "center"}}>
-        <TableRow >
-          <TableCell >First Name</TableCell>
-          <TableCell >Last Name</TableCell>
-          <TableCell >Birthday</TableCell>
-          <TableCell >Age</TableCell>
-          <TableCell >Hobby</TableCell>
-        </TableRow>
-      </TableHead>
-      <TableBody>
-      {
-          props.users.map(item=>{
-              return (
-                <TableRow>
-                <TableCell >{item.firstName}</TableCell>
-                <TableCell >{item.lastName}</TableCell>
-                <TableCell >{item.birthday}</TableCell>
-                <TableCell >{item.age}</TableCell>
-                <TableCell >{item.hobby}</TableCell>
+      <Grid item>
+        <TableHead style={{ display: "center" }}>
+          <TableRow>
+            <TableCell>First Name</TableCell>
+            <TableCell>Last Name</TableCell>
+            <TableCell>Birthday</TableCell>
+            <TableCell>Age</TableCell>
+            <TableCell>Hobby</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {props.users.map((item, index) => {
+            return (
+              <TableRow key={index}>
+                <TableCell>{item.firstName}</TableCell>
+                <TableCell>{item.lastName}</TableCell>
+                <TableCell>{item.birthday}</TableCell>
+                <TableCell>{item.age}</TableCell>
+                <TableCell>{item.hobby}</TableCell>
               </TableRow>
-              )
-          })
-      }
-      </TableBody>
+            );
+          })}
+        </TableBody>
       </Grid>
     </Paper>
   );
 };
 
-export default Table;
+
+const mapStateToProps = state => {
+  return {
+    users: state.users
+  };
+};
+
+export default connect(mapStateToProps)(Table);
