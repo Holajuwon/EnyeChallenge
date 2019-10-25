@@ -33,9 +33,9 @@ Now that you have finished the first challenge, it is time to see what you are r
 
 ## Resources
 
-- Redux with Hooks
-- Introduction to Hooks
-- Getting started with Redux
+- [Redux with Hooks](https://react-redux.js.org/next/api/hooks)
+- [Introduction to Hooks](https://reactjs.org/docs/hooks-intro.html)
+- [Getting started with Redux](https://react-redux.js.org/next/introduction/quick-start)
 
 ## Submission
 
