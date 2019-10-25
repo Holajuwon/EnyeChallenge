@@ -1,5 +1,5 @@
 import React from "react";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 import {
   Paper,
   TableHead,
@@ -10,6 +10,8 @@ import {
 } from "@material-ui/core";
 
 const Table = props => {
+  const users = useSelector(state => state.users);
+
   return (
     <Paper style={{ padding: 30, margin: 30, width: 500 }}>
       <Grid item>
@@ -23,7 +25,7 @@ const Table = props => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {props.users.map((item, index) => {
+          {users.map((item, index) => {
             return (
               <TableRow key={index}>
                 <TableCell>{item.firstName}</TableCell>
@@ -40,11 +42,4 @@ const Table = props => {
   );
 };
 
-
-const mapStateToProps = state => {
-  return {
-    users: state.users
-  };
-};
-
-export default connect(mapStateToProps)(Table);
+export default Table;

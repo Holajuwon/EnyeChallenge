@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { connect, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addUser } from "../actions/user";
 import { Grid } from "@material-ui/core";
 import Table from "./Table";
@@ -23,4 +23,4 @@ const App = props => {
   );
 };
 
-export default connect()(App);
+export default App;
