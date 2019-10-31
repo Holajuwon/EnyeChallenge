@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { useDispatch } from "react-redux";
-import { addUser } from "../actions/user";
+import { addUser, startAddUser } from "../actions/user";
 import { Grid } from "@material-ui/core";
 import Table from "./Table";
 import Header from "./Header";
@@ -14,7 +14,8 @@ const App = props => {
       <Grid container style={{ display: "flex", justifyContent: "center" }}>
         <UserForm
           onSubmit={user => {
-            dispatch(addUser(user));
+            dispatch(startAddUser(user));
+            // dispatch(addUser(user));
           }}
         />
         <Table />
