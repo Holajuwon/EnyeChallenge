@@ -14,6 +14,7 @@ const UserForm = props => {
   const handleInput = e => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
+
   };
 
   const handleSubmit = e => {
@@ -21,13 +22,13 @@ const UserForm = props => {
     setError({ error: " " });
     if (user.firstName && user.lastName && user.birthday) {
       setUser(initialFormState);
-      props.onSubmit({
+      (props.onSubmit({
         firstName: user.firstName,
         lastName: user.lastName,
         birthday: user.birthday,
         age: user.age,
         hobby: user.hobby
-      });
+      }));
     } else {
       setError({ error: "Please Fill all required inputs" });
     }

@@ -10,8 +10,8 @@ import {
 } from "@material-ui/core";
 
 const Table = props => {
-  const users = useSelector(state => state.users);
-
+  const user = useSelector(state => state.users);
+  let allUsers = user.flat();
   return (
     <Paper style={{ padding: 30, margin: 30, width: 500 }}>
       <Grid item>
@@ -22,10 +22,11 @@ const Table = props => {
             <TableCell>Birthday</TableCell>
             <TableCell>Age</TableCell>
             <TableCell>Hobby</TableCell>
+            <TableCell>ID</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {users.map((item, index) => {
+          {allUsers.map((item, index) => {
             return (
               <TableRow key={index}>
                 <TableCell>{item.firstName}</TableCell>
@@ -33,6 +34,11 @@ const Table = props => {
                 <TableCell>{item.birthday}</TableCell>
                 <TableCell>{item.age}</TableCell>
                 <TableCell>{item.hobby}</TableCell>
+                <TableCell>
+                  {item.userId === undefined
+                    ? item.userId
+                    : item.userId.slice(1, 15)}
+                </TableCell>
               </TableRow>
             );
           })}
