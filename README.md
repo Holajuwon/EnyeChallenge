@@ -36,7 +36,7 @@ Amazing, you have successfully completed the Redux with Hooks challenge, now for
 
 - [Write and Deploy Your First Function](https://firebase.google.com/docs/functions/get-started)
 - [Getting Started with Firebase Functions](https://dev.to/bogdaaamn/getting-started-with-google-cloud-functions-on-firebase-3g29)
-- [Getting started with Redux](https://madewithlove.be/firebase-and-redux-saga-can-be-friends/)
+- [Firebase and Redux Sagas can be Friends](https://madewithlove.be/firebase-and-redux-saga-can-be-friends/)
 
 ## Submission
 
